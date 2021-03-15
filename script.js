@@ -1,46 +1,71 @@
-"use strict";
+//•	Какое будет выведено значение: let x = 5; alert( x++ ); ?
 
-// 1)
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+// let x = 5; alert( x++ ); //увеличивает на 1 но перед этим возращает 5  если записать ++х то будет 6
 
 
 
-console.log(typeof((5+'')));
+
+// •	Чему равно такое выражение: [ ] + false - null + true ?
 
 
-const num =5;
-console.log("htpps://vk.com/catalog/" +num);
+// console.log([ ] + false- null + true) //NaN
 
 
-const fontSize = 26 + 'px';
 
-// to number
-
-// 1)
-console.log(typeof(Number('4')));
-
-//2)
-console.log(typeof(+'5'));
-
-//3)
-
-console.log(typeof(parseInt("15px", 10)));
+// •	Что выведет этот код: let y = 1; let x = y = 2; alert(x); ?
+// let y = 1;
+// let x = y = 2;
+// alert(x);  // равно 2
 
 
-// let answ = +prompt("Hello", "");
 
-// to boolean
 
-//1)
+// •	Чему равна сумма [ ] + 1 + 2?
 
-let switcher = 1;
-if (switcher){
-    console.log('Working');
-}
+// console.log([ ] + 1 + 2); //12
 
-//2)
-console.log(typeof (Boolean(+'5')));
 
-//3)
-console.log(typeof (!!"4444"));
+
+// •	Что выведет этот код: alert( "1"[0] )?
+
+// alert( "1"[0] );
+
+
+
+// •	Чему равно 2 && 1 && null && 0 && undefined ?
+
+
+
+// console.log(2 && 1 && null && 0 && undefined);  // и всегда запинается на лжи  или на правде
+
+// •	Есть ли разница между выражениями? !!( a && b ) и (a && b)?
+// console.log(!!( 1 && 2 ) === (1 && 2)); // !! превращают в boolean
+
+
+
+// •	Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
+
+// alert( null || 2 && 3 || 4 );
+
+
+// •	a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
+
+// let a = [1, 2, 3];
+// let b = [1, 2, 3];
+// console.log(a==b);
+// не равны т.к разные хранилища информации
+
+// •	Что выведет этот код: alert( +"Infinity" ); ?
+
+
+// alert( +"Infinity" );
+
+// •	Верно ли сравнение: "Ёжик" > "яблоко"?
+
+// console.log("Ёжик" > "яблоко");
+
+
+
+// •	Чему равно 0 || "" || 2 || undefined || true || falsе ?
+
+console.log(0 || "" || 2 || undefined || true || falsе);
