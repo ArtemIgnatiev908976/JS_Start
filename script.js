@@ -316,15 +316,59 @@
 // first();
 // second();
 
-function learnJS(lang,callback){
-    console.log(`Я учу: ${lang}`)
-    callback();
+// function learnJS(lang,callback){
+//     console.log(`Я учу: ${lang}`)
+//     callback();
+//
+// }
+//
+// function done(){
+//     console.log('Z ghjitk ')
+// }
+//
+//
+// learnJS('javascript', done);
 
+"use strict"
+
+const arr =[1,2,3,4,5,6,8,10];
+
+arr.sort(compareNum);
+console.log(arr);
+
+
+function  compareNum (a, b){
+    return a-b;
 }
 
-function done(){
-    console.log('Z ghjitk ')
-}
+// arr.pop()    // удаляет последний элемент из массива
+
+// arr.push(10);// добавляет элемент
+// console.log(arr)
 
 
-learnJS('javascript', done);
+
+// for (let i=0; i<arr.length; i++){
+//
+//     console.log(arr[i]);
+//
+// }   // перебор
+//
+// for (let value of arr){
+//     console.log(value);
+// }
+//
+//
+//
+// arr.forEach(function(item, i, arr){
+//     console.log(`${i}: ${item} внутри массива ${arr}`)
+// })
+
+
+
+const str = prompt ("", "")
+const products = str.split(", ");
+
+products.sort();
+console.log(products.join('; '));
+
