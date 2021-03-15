@@ -1,125 +1,46 @@
-"use strict"
+"use strict";
+
+// 1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
 
 
 
-
-const personalMovieDB ={
-    count: 0,
-    movies:{},
-    actors:{},
-    generals:[],
-    private: false,
-
-    start:
-        function (){ personalMovieDB.count =+prompt('Сколько фильмов вы уже посмотрели?', '')
-        while (personalMovieDB.count=='' || personalMovieDB.count == null || isNaN(personalMovieDB.count)){
-            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-        }
-    },
+console.log(typeof((5+'')));
 
 
-
-    rememberMyFilms: function (){
-
-        for(let i =0; i<2; i++){
-
-            const a = prompt('Один из последних просмотренных фильмов?',''),
-                b = prompt('На сколько оцените его?','');
-
-            if (a !=null && b !=null  && a!='' && b !='' && a.length < 50){
-
-                personalMovieDB.movies[a] = b;
-                console.log('done')
-            } else{
-                console.log('error');  // если не правильно заполнили все заного
-                i--;
-            }
+const num =5;
+console.log("htpps://vk.com/catalog/" +num);
 
 
+const fontSize = 26 + 'px';
 
-        }
+// to number
 
+// 1)
+console.log(typeof(Number('4')));
 
-    },
+//2)
+console.log(typeof(+'5'));
 
+//3)
 
-    detectPersonalLevel: function (){
-        if (personalMovieDB.count < 10){
-            console.log('Просмотрено довольно мало фильмов');
-        }
-        else if(personalMovieDB.count >=10 && personalMovieDB.count <30){
-            console.log('Вы класический зритель');
-        }
-        else if (personalMovieDB.count >=30){
-            console.log('Вы киноман');
-        }
-        else {
-            console.log('Произошла ошибка');
-        }
-
-    },
+console.log(typeof(parseInt("15px", 10)));
 
 
+// let answ = +prompt("Hello", "");
 
-    showMyDB: function (hidden){
-        if(!hidden){
-            console.log(personalMovieDB.private)
-        }
+// to boolean
 
-    },
+//1)
 
-    toogleVisibleMyDB: function (){
-        if (personalMovieDB.private){
-            personalMovieDB.private = false;
+let switcher = 1;
+if (switcher){
+    console.log('Working');
+}
 
-        } else {
-            personalMovieDB.private = true;
-        }
+//2)
+console.log(typeof (Boolean(+'5')));
 
-    },
-
-
-
-    writeYouGenerals: function (){
-        for (let i = 1; i <= 3; i++){
-
-
-            let genre = prompt(`Ваш любимый жанр под номером ${i}`);
-
-            if (genre == ''|| genre == null){
-                console.log('Вы ввели некорректные данные или не ввели их вообще');
-                i--;
-            } else {
-
-                personalMovieDB.generals[i-1] = genre;
-            }
-
-        }
-
-
-      personalMovieDB.generals.forEach((item,i)  => {
-          console.log(`Любимый жанр ${i+1} - это ${item}`);
-        });
-
-
-
-    }
-
-
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//3)
+console.log(typeof (!!"4444"));
