@@ -40,3 +40,6 @@ adv.forEach(item => {
 
 // изменяем жанр текста
 genre.textContent ='драма';
+
+// поменяли картинку
+poster.style.backgroundImage = "url('img/bg.jpg')";
