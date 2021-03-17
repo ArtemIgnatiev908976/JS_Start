@@ -24,3 +24,12 @@ const movieDB = {
     ]
 };
 
+
+//убрать все рекламные изображения
+const adv = document.querySelectorAll('.promo__adv img');
+
+adv.forEach(item => {
+
+    item.remove();
+})
+
