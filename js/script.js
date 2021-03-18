@@ -13,47 +13,100 @@
 5) Добавить нумерацию выведенных фильмов */
 
 'use strict';
+document.addEventListener('DOMContentLoaded', () => {
 
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
-};
+
+    const movieDB = {
+        movies: [
+            "Логан",
+            "Лига справедливости",
+            "Ла-ла лэнд",
+            "Одержимость",
+            "Скотт Пилигрим против..."
+        ]
+    };
 
 
 //убрать все рекламные изображения
-const adv = document.querySelectorAll('.promo__adv img'),
-      poster = document.querySelector('.promo__bg'),
-      genre = poster.querySelector('.promo__genre'),
-      movieList = document.querySelector('.promo__interactive-list');
+    const adv = document.querySelectorAll('.promo__adv img'),
+        poster = document.querySelector('.promo__bg'),
+        genre = poster.querySelector('.promo__genre'),
+        movieList = document.querySelector('.promo__interactive-list'),
+        addForm = document.querySelector('form.add'),
+        addInput = addForm.querySelector('.adding__input'),
+        checkbox = addForm.querySelector('[type="checkbox"]');
+
+
+    addForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const newFilm = addInput.value; //то что ввел пользователь
+        const favorite = checkbox.checked;
+
+
+        movieDB.movies.push(newFilm);
+
+        // movieDB.movies.sort();  // сортировка по алфавиту
+        sortArr(movieDB.movies);// сортировка по алфавиту
+
+        //создание новых элементов на странице
+        createMovieList(movieDB.movies, movieList);
+
+        event.target.reset();
+
+    });
+
+
+    const deleteAdv = (arr) => {
+        adv.forEach(item => {
+
+            item.remove();
+        })
+    };
 
 
 
-adv.forEach(item => {
-
-    item.remove();
-})
-//убрать все рекламные изображения
-
-// изменяем жанр текста
-genre.textContent ='драма';
+    const makeChanges = () => {
+        // изменяем жанр текста
+        genre.textContent = 'драма';
 
 // поменяли картинку
-poster.style.backgroundImage = "url('img/bg.jpg')";
+        poster.style.backgroundImage = "url('img/bg.jpg')";
 // Удаляем список фильмов
-movieList.innerHTML = "";
+    };
+
+
+
+
+
 // сортировка по алфавиту
-movieDB.movies.sort();
-//вывод списка фильмов и их нумерация
-movieDB.movies.forEach((film, i)=>{
-   movieList.innerHTML += `
-                          <li class="promo__interactive-item">${i+1} ${film}
+    const sortArr = (arr) => {
+        arr.sort()
+    };
+
+
+
+
+    function createMovieList(films, parent) {
+
+        parent.innerHTML = "";
+
+        films.forEach((film, i) => {
+            parent.innerHTML += `
+                          <li class="promo__interactive-item">${i + 1} ${film}
                             <div class="delete"></div>
                            </li>
                         `;
+        });
+    }
+
+
+        createMovieList(movieDB.movies, movieList)
+        deleteAdv(adv);//убрать все рекламные изображения
+        makeChanges();
+        sortArr(movieDB.movies);
+
+
 });
+
 
