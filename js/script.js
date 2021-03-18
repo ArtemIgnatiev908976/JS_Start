@@ -99,6 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createMovieList(films, parent) {
 
+
+
+
         parent.innerHTML = "";
 
         films.forEach((film, i) => {
@@ -107,6 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="delete"></div>
                            </li>
                         `;
+        });
+
+
+        document.querySelectorAll('.delete').forEach((btn, i)=>{
+
+           btn.addEventListener('click', ()=>{
+               btn.parentElement.remove();
+               movieDB.movies.splice(i, 1);// сплайс вырезает определенный элемент
+
+               createMovieList(movieDB.movies, movieList)
+           })
         });
     }
 
