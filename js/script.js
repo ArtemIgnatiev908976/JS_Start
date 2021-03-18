@@ -40,19 +40,29 @@ document.addEventListener('DOMContentLoaded', () => {
     addForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const newFilm = addInput.value; //то что ввел пользователь
+        let newFilm = addInput.value; //то что ввел пользователь
         const favorite = checkbox.checked;
 
+        if (newFilm){
 
-        movieDB.movies.push(newFilm);
+            if (newFilm.length > 21){
+                newFilm = `${newFilm.substring(0,22)}...`;
+            }
 
-        // movieDB.movies.sort();  // сортировка по алфавиту
-        sortArr(movieDB.movies);// сортировка по алфавиту
+            movieDB.movies.push(newFilm);
 
-        //создание новых элементов на странице
-        createMovieList(movieDB.movies, movieList);
+            // movieDB.movies.sort();  // сортировка по алфавиту
+            sortArr(movieDB.movies);// сортировка по алфавиту
 
+            //создание новых элементов на странице
+            createMovieList(movieDB.movies, movieList);
+
+        }
+
+
+        //сброс что в поле было
         event.target.reset();
+
 
     });
 
