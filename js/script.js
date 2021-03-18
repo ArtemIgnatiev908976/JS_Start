@@ -49,6 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 newFilm = `${newFilm.substring(0,22)}...`;
             }
 
+
+            if (favorite){
+                console.log("Добавляем любимый фильм");
+            }
+
             movieDB.movies.push(newFilm);
 
             // movieDB.movies.sort();  // сортировка по алфавиту
@@ -103,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         parent.innerHTML = "";
-
+        sortArr(films);
         films.forEach((film, i) => {
             parent.innerHTML += `
                           <li class="promo__interactive-item">${i + 1} ${film}
@@ -119,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                btn.parentElement.remove();
                movieDB.movies.splice(i, 1);// сплайс вырезает определенный элемент
 
-               createMovieList(movieDB.movies, movieList)
+               createMovieList(films, parent)
            })
         });
     }
@@ -128,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createMovieList(movieDB.movies, movieList)
         deleteAdv(adv);//убрать все рекламные изображения
         makeChanges();
-        sortArr(movieDB.movies);
+
 
 
 });
